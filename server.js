@@ -22,4 +22,16 @@ io.on('connection', socket => {
             console.log('WORKING ROOM SOCKET')
         }
     }) 
+
+    socket.on('join-room', (roomKey) => {
+        socket.join(roomKey)
+    })
+
+    socket.on('send-message', (message, roomkey, name) => {
+        console.log(message, roomkey, name)
+        
+        socket.to(roomkey).emit("recieve-message", message, name)
+        
+        
+    })
 })

@@ -29,9 +29,15 @@ io.on('connection', socket => {
 
     socket.on('send-message', (message, roomkey, name) => {
         console.log(message, roomkey, name)
-        
+    
         socket.to(roomkey).emit("recieve-message", message, name)
         
+    })
+    
+    socket.on('send-yt-link', (yt_link, roomkey) => {
+        console.log('incoming : ', yt_link, roomkey)
+        socket.to(roomkey).emit("recieve-yt", yt_link)
         
     })
+
 })

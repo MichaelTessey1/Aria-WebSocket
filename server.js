@@ -33,11 +33,16 @@ io.on('connection', socket => {
         socket.to(roomkey).emit("recieve-message", message, name)
         
     })
-    
+
     socket.on('send-yt-link', (yt_link, roomkey) => {
         console.log('incoming : ', yt_link, roomkey)
         socket.to(roomkey).emit("recieve-yt", yt_link)
         
+    })
+
+    socket.on('send-video-status', (status, roomkey) => {
+        console.log('incoming : ', status, roomkey)
+        socket.to(roomkey).emit("recieve-video-status", status)
     })
 
 })

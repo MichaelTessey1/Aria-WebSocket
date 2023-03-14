@@ -1,4 +1,8 @@
 {
+  "name": "aria-websocket",
+  "scripts": {
+    "build": "npm install"
+  },
   "dependencies": {
     "socket.io": "^4.6.1"
   }

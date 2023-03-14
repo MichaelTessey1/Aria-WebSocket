@@ -1,14 +1,14 @@
 const io = require('socket.io')(server, {
     cors: {
-        origin: '*',
+        origin: ['http://localhost:3000']
     }
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 io.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
-  });
+  console.log(`Listening on port ${PORT}`);
+});
 
 io.on('connection', socket => {
     console.log(socket.id)
